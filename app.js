@@ -2,7 +2,11 @@ const express = require ('express');
 const bodyParser = require ('body-parser');
 const cors = require ('cors');
 const app = express();
-const {db} = require('./model/dbConnection');
+const port = process.env.PORT || 3000
+const mysql = require('mysql2')
+const connection = mysql.createConnection(process.env.DATABASE_URL);
+
+connection.connect()
 
 app.use(cors());
 app.use(express.json());
@@ -85,6 +89,6 @@ app.delete('/api/deleteUser', (req, res) => {
     });
 });
 
-app.listen(3000,() => {
+app.listen(port,() => {
     console.log('server berhasil');
 });
