@@ -1,4 +1,4 @@
-const mysql = require ('mysql');
+const mysql = require ('mysql2');
 
 const db = mysql.createPool({
     host: 'us-east.connect.psdb.cloud',
